@@ -27,7 +27,7 @@ function FoundItemsDirective() {
 NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
   var menu = this;
-  var menu.matchedItem;
+  var menu.matchedItems;
 
   menu.getMatchedMenuItems= function (searchTerm) {
     menu.matchedItems = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
@@ -35,7 +35,7 @@ function NarrowItDownController(NarrowItDownService) {
 
   menu.removeItem = function (itemIndex) {
     console.log("'this' is: ", this);
-    menu.matchedItem.splice(itemIndex, 1);
+    menu.matchedItems.splice(itemIndex, 1);
   };
 }
 
