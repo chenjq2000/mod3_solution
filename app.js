@@ -58,9 +58,9 @@ function MenuCategoriesService($http, ApiBasePath) {
         if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
           foundItems.push(item);
         }
-      });
+      }
       return foundItems;
-    }
+    });
 
     return promise;
 
