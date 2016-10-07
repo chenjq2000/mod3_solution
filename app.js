@@ -51,14 +51,14 @@ function MenuCategoriesService($http, ApiBasePath) {
     var promise = $http({
       method: "GET",
       url: (ApiBasePath + "/menu_items.json")
-    }).then(result) {
+    }).then(function (result) {
       var items = result.data;
       var foundItems = [];
       for (item in items) {
         if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
           foundItems.push(item);
         }
-      }
+      });
       return foundItems;
     }
 
