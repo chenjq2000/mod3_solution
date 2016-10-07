@@ -31,7 +31,7 @@ function NarrowItDownDirectiveController() {
 NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
   var list = this;
-  var list.found = [];
+  list.found = [];
 
   menu.getMatchedMenuItems= function (searchTerm) {
     list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
