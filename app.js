@@ -33,11 +33,11 @@ function NarrowItDownController(NarrowItDownService) {
   var list = this;
   list.found = [];
 
-  menu.getMatchedMenuItems= function (searchTerm) {
+  list.getMatchedMenuItems= function (searchTerm) {
     list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
   };
 
-  menu.removeItem = function (itemIndex) {
+  list.removeItem = function (itemIndex) {
     console.log("'this' is: ", this);
     list.found.splice(itemIndex, 1);
   };
