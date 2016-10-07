@@ -44,8 +44,8 @@ function NarrowItDownController(NarrowItDownService) {
 }
 
 
-MenuCategoriesService.$inject = ['$http', 'ApiBasePath']
-function MenuCategoriesService($http, ApiBasePath) {
+NarrowItDownService.$inject = ['$http', 'ApiBasePath']
+function NarrowItDownService($http, ApiBasePath) {
   var service = this;
   service.getMatchedMenuItems = function (searchTerm) {
     var promise = $http({
