@@ -12,30 +12,34 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
-      foundItems: '<',
+      found: '<',
       onRemove: '&'
     },
-    controller: NarrowItDownController,
+    controller: NarrowItDownDirectiveController,
     controllerAs: 'list',
     bindToController: true
   };
 
   return ddo;
-};
+}
+
+function NarrowItDownDirectiveController() {
+  var list = this;
+}
 
 
 NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
-  var menu = this;
-  var menu.matchedItems;
+  var list = this;
+  var list.found = [];
 
   menu.getMatchedMenuItems= function (searchTerm) {
-    menu.matchedItems = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
+    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
   };
 
   menu.removeItem = function (itemIndex) {
     console.log("'this' is: ", this);
-    menu.matchedItems.splice(itemIndex, 1);
+    list.found.splice(itemIndex, 1);
   };
 }
 
