@@ -31,10 +31,12 @@ function NarrowItDownDirectiveController() {
 NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
   var list = this;
-  list.found = [];
 
   list.getMatchedMenuItems= function (searchTerm) {
-    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {return searchResult;});
+    var promise = NarrowItDownService.getMatchedMenuItems(searchTerm);
+    promise.then(function(searchResult) {
+      list.found = searchResult.value;
+    });
   };
 
   list.removeItem = function (itemIndex) {
