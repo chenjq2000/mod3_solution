@@ -28,12 +28,13 @@ NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
   var list = this;
 
-  list.getMatchedMenuItems= function (searchTerm) {
+  list.getMatchedMenuItems = function (searchTerm) {
     var promise = NarrowItDownService.getMatchedMenuItems(searchTerm);
     promise.then(function(searchResult) {
       list.found = searchResult.value;
     });
-  };
+  }
+
 
   list.removeItem = function (itemIndex) {
     console.log("'this' is: ", this);
