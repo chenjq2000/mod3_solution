@@ -15,7 +15,7 @@ function FoundItemsDirective() {
       foundItems: '<',
       onRemove: '&'
     },
-    controller: NarrowItDownDirectiveController,
+    controller: NarrowItDownController,
     controllerAs: 'list',
     bindToController: true
   };
@@ -23,9 +23,7 @@ function FoundItemsDirective() {
   return ddo;
 }
 
-function NarrowItDownDirectiveController() {
-  var list = this;
-}
+
 
 NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
