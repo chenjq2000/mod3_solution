@@ -29,10 +29,10 @@ function NarrowItDownController(NarrowItDownService) {
   var list = this;
 
   list.getFoundItems = function (searchTerm) {
-    
+
     NarrowItDownService.getMatchedMenuItems(searchTerm)
     .then(function(searchResult) {
-      list.found = searchResult.value;
+      list.found = searchResult;
     });
 
     return list.found;
