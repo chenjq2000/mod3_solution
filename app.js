@@ -29,11 +29,10 @@ function NarrowItDownController(NarrowItDownService) {
   var list = this;
 
   list.getMatchedMenuItems = function (searchTerm) {
-    var promise = NarrowItDownService.getMatchedMenuItems(searchTerm);
-    promise.then(function(searchResult) {
+    NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {
       list.found = searchResult.value;
     });
-  }
+  };
 
 
   list.removeItem = function (itemIndex) {
