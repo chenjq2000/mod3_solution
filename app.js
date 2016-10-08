@@ -33,6 +33,7 @@ function NarrowItDownController(NarrowItDownService) {
     .then(function(searchResult) {
       list.found = searchResult.value;
     });
+    return list.found;
   }
 
 
