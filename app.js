@@ -12,9 +12,10 @@ function FoundItemsDirective() {
   var ddo = {
     templateUrl: 'foundItems.html',
     scope: {
+      found:'<',
       onRemove: '&'
     },
-    controller: NarrowItDownController,
+    controller: NarrowItDownDirectiveController,
     controllerAs: 'list',
     bindToController: true
   };
@@ -22,6 +23,9 @@ function FoundItemsDirective() {
   return ddo;
 }
 
+function NarrowItDownDirectiveController() {
+  var list = this;
+}
 
 
 NarrowItDownController.$inject = ['NarrowItDownService'];
