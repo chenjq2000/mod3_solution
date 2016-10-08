@@ -34,7 +34,7 @@ function NarrowItDownController(NarrowItDownService) {
   list.found = [];
 
   list.getMatchedMenuItems= function (searchTerm) {
-    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(searchResult);
+    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {return result;});
   };
 
   list.removeItem = function (itemIndex) {
