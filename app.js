@@ -54,7 +54,7 @@ function NarrowItDownService($http, ApiBasePath) {
     }).then(function (result) {
       var items = result.data.menu_items;
       var foundItems = [];
-      for (item in items) {
+      for (var item in items) {
         if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
           foundItems.push(item);
         }
