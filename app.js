@@ -52,7 +52,7 @@ function NarrowItDownService($http, ApiBasePath) {
       method: "GET",
       url: (ApiBasePath + "/menu_items.json")
     }).then(function (result) {
-      var items = result.data;
+      var items = result.data.menu_items;
       var foundItems = [];
       for (item in items) {
         if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
