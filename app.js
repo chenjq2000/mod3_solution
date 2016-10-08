@@ -28,11 +28,12 @@ NarrowItDownController.$inject = ['NarrowItDownService'];
 function NarrowItDownController(NarrowItDownService) {
   var list = this;
 
-  list.getMatchedMenuItems = function (searchTerm) {
-    NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {
+  list.getFoundItems = function (searchTerm) {
+    NarrowItDownService.getMatchedMenuItems(searchTerm)
+    .then(function(searchResult) {
       list.found = searchResult.value;
     });
-  };
+  }
 
 
   list.removeItem = function (itemIndex) {
