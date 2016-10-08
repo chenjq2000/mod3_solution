@@ -34,7 +34,7 @@ function NarrowItDownController(NarrowItDownService) {
   list.found = [];
 
   list.getMatchedMenuItems= function (searchTerm) {
-    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {return result;});
+    list.found = NarrowItDownService.getMatchedMenuItems(searchTerm).then(function(searchResult) {return searchResult;});
   };
 
   list.removeItem = function (itemIndex) {
@@ -54,9 +54,12 @@ function NarrowItDownService($http, ApiBasePath) {
     }).then(function (result) {
       var items = result.data.menu_items;
       var foundItems = [];
-      for (var item in items) {
-        if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
-          foundItems.push(item);
+      for (var key in items) {
+        if (items.hasOwnProperty(key)) {
+          var item = obj[key];
+          if (item.name.toLowerCase().indexOf(searchTerm) !== -1) {
+            foundItems.push(item);
+          }
         }
       }
       return foundItems;
