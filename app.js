@@ -35,7 +35,6 @@ function NarrowItDownController(NarrowItDownService) {
       list.found = searchResult;
     });
 
-    return list.found;
   }
 
 
